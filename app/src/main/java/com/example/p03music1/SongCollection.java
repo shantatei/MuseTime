@@ -20,7 +20,41 @@ public class SongCollection {
         songs[0]= theWayYouLookTonight;
         songs[1]= billyJean;
         songs[2]= one;
+    }
 
+    public int searchSongById(String id){
+        for (int i = 0; i <songs.length; i++) {
+
+            Song tempSong = songs[i];
+            if(tempSong.getId().equals(id)){
+                return i;
+            }
+
+        }
+        return -1;
+    }
+
+    public Song getCurrentSong(int currentSongId){
+
+        return songs[currentSongId];
+    }
+
+    public int getNextSong(int currentSongIndex){
+        if (currentSongIndex>= songs.length-1){
+            return currentSongIndex;
+        }
+        else {
+            return currentSongIndex+1;
+        }
+    }
+
+    public int getPrevSong(int currentSongIndex){
+        if (currentSongIndex<=0){
+            return currentSongIndex;
+        }
+        else {
+            return currentSongIndex-1;
+        }
     }
 }
 
