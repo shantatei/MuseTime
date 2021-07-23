@@ -2,7 +2,7 @@ package com.example.p03music1;
 
 public class SongCollection {
 
-    private Song songs[]= new Song[3];
+    public Song songs[]= new Song[3];
     public SongCollection() {
 
         Song theWayYouLookTonight = new Song("S1001", "The Way You Look Tonight", "Michael Buble",
