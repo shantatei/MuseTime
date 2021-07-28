@@ -33,6 +33,17 @@ public class SongCollection {
         }
         return -1;
     }
+    public int searchSongByTitle(String title){
+        for (int i = 0; i <songs.length; i++) {
+
+            Song tempSong = songs[i];
+            if(tempSong.getTitle().equals(title)){
+                return i;
+            }
+
+        }
+        return -1;
+    }
 
     public Song getCurrentSong(int currentSongId){
 

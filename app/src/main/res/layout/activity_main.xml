@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:visibility="visible">
 
     <ImageButton
         android:id="@+id/S1001"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
         android:layout_marginTop="60dp"
         android:onClick="handleSelection"
         android:scaleType="centerCrop"
@@ -45,8 +46,8 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="30dp"
-        android:scaleType="centerCrop"
         android:onClick="handleSelection"
+        android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="@+id/S1001"
         app:layout_constraintTop_toBottomOf="@+id/S1001"
         app:srcCompat="@drawable/billie_jean" />
@@ -77,8 +78,8 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="30dp"
-        android:scaleType="centerCrop"
         android:onClick="handleSelection"
+        android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="@+id/S1002"
         app:layout_constraintTop_toBottomOf="@+id/S1002"
         app:srcCompat="@drawable/photograph" />
@@ -101,5 +102,76 @@
         android:text="Ed Sheeran"
         app:layout_constraintStart_toStartOf="@+id/txtTitle3"
         app:layout_constraintTop_toBottomOf="@+id/txtTitle3" />
+
+    <ImageButton
+        android:id="@+id/homebtn"
+        android:layout_width="36dp"
+        android:layout_height="31dp"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/home_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.184"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/searchbtn"
+        android:layout_width="38dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="82dp"
+        android:layout_marginLeft="82dp"
+        android:background="@drawable/search_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/homebtn"
+        app:layout_constraintTop_toBottomOf="@+id/txtArtist3"
+        app:layout_constraintVertical_bias="0.896" />
+
+    <ImageButton
+        android:id="@+id/playlistbtn"
+        android:layout_width="54dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
+        android:background="@drawable/library_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.952" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="Home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="184dp"
+        android:layout_marginLeft="184dp"
+        android:layout_marginBottom="12dp"
+        android:text="Search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
+        android:layout_marginBottom="12dp"
+        android:rotationX="13"
+        android:text="Playlist"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

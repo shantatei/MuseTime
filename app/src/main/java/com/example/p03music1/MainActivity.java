@@ -6,9 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ImageButton searchbutton;
+    private ImageButton playlistbutton;
 
     SongCollection songCollection = new SongCollection();
 
@@ -17,6 +20,28 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        searchbutton = findViewById(R.id.searchbtn);
+        playlistbutton = findViewById(R.id.playlistbtn);
+        playlistbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPlaylistActivity();
+            }
+        });
+        searchbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openSearchActivity();
+            }
+        });
+    }
+        public void openSearchActivity(){
+        Intent intent = new Intent(this,SearchActivity.class);
+       startActivity(intent);
+        }
+        public void openPlaylistActivity(){
+        Intent intent = new Intent(this,PlaylistActivity.class);
+        startActivity(intent);
     }
 
     public void sendDataToActivity(int index){
