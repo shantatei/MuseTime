@@ -1,5 +1,7 @@
 package com.example.p03music1;
 
+import android.content.Context;
+
 public class Song {
 
     private String id;
@@ -22,8 +24,7 @@ public class Song {
         return id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getTitle() { return title;
     }
 
     public String getArtiste() {
@@ -40,5 +41,12 @@ public class Song {
 
     public int getDrawable() {
         return drawable;
+    }
+
+    public static int getImageIdFromDrawable(Context context, int imageName)
+    {
+        int imageID = context.getResources().getIdentifier(String.valueOf(imageName),"drawable", context.getPackageName());
+
+        return imageID;
     }
 }
