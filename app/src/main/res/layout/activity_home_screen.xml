@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".HomeScreen">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="16dp"
+        android:text="Welcome Back, User "
+        android:textColor="@color/white"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/categoryTxt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Made for you"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+
+    <HorizontalScrollView
+        android:id="@+id/horizontal1"
+        android:layout_width="450dp"
+        android:layout_height="206dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/categoryTxt1">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/madeforyou1"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/blueming"
+                android:onClick="handleSelection"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/madeforyou2"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/shape_of_you"
+                android:onClick="handleSelection"
+                android:text="Button"
+                app:layout_constraintStart_toEndOf="@id/madeforyou1"
+                app:layout_constraintTop_toTopOf="@id/madeforyou1" />
+
+            <ImageButton
+                android:id="@+id/madeforyou3"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/mercy"
+                android:onClick="handleSelection"
+                android:text="Button"
+                app:layout_constraintStart_toEndOf="@id/madeforyou2"
+                app:layout_constraintTop_toTopOf="@id/madeforyou2" />
+
+            <ImageButton
+                android:id="@+id/madeforyou4"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/butter"
+                android:onClick="handleSelection"
+                android:text="Button"
+                app:layout_constraintStart_toEndOf="@id/madeforyou3"
+                app:layout_constraintTop_toTopOf="@id/madeforyou3" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="27dp"
+                android:layout_marginLeft="27dp"
+                android:text="Blueming"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/madeforyou1" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shape of You"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/madeforyou2"
+                app:layout_constraintTop_toBottomOf="@+id/madeforyou2" />
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mercy"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/madeforyou3"
+                app:layout_constraintTop_toBottomOf="@+id/madeforyou3" />
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Butter"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/madeforyou4"
+                app:layout_constraintTop_toBottomOf="@+id/madeforyou4" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/categoryTxt2"
+        android:layout_width="49dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="16dp"
+        android:text="Artist"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/categoryTxt1"
+        app:layout_constraintTop_toBottomOf="@id/horizontal1" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontal2"
+        android:layout_width="450dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/categoryTxt2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/artist1"
+                android:layout_width="123dp"
+                android:layout_height="123dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/ed_sheeran_artist"
+                android:hapticFeedbackEnabled="false"
+                android:onClick="handleSelection"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/Circular" />
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/artist2"
+                android:layout_width="123dp"
+                android:layout_height="123dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/shawn_mendes_artist"
+                android:onClick="handleSelection"
+                android:text="Button"
+                app:layout_constraintStart_toEndOf="@id/artist1"
+                app:layout_constraintTop_toTopOf="@id/artist1"
+                app:shapeAppearanceOverlay="@style/Circular" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/artist3"
+                android:layout_width="123dp"
+                android:layout_height="123dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/iu_artist"
+                android:onClick="handleSelection"
+                android:text="Button"
+                app:layout_constraintStart_toEndOf="@id/artist2"
+                app:layout_constraintTop_toTopOf="@id/artist2"
+                app:shapeAppearanceOverlay="@style/Circular" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/artist4"
+                android:layout_width="123dp"
+                android:layout_height="123dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/rose_artist"
+                android:onClick="handleSelection"
+                android:text="Button"
+                app:layout_constraintStart_toEndOf="@id/artist3"
+                app:layout_constraintTop_toTopOf="@id/artist3"
+                app:shapeAppearanceOverlay="@style/Circular" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="27dp"
+                android:layout_marginLeft="27dp"
+                android:text="Ed Sheeran"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@id/artist1"
+                app:layout_constraintTop_toBottomOf="@id/artist1" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shawn Mendes"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/artist2"
+                app:layout_constraintTop_toBottomOf="@+id/artist2" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="IU"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/artist3"
+                app:layout_constraintTop_toBottomOf="@+id/artist3" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rosé"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/artist4"
+                app:layout_constraintTop_toBottomOf="@+id/artist4" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </HorizontalScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="450dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="0dp"
+            android:background="@color/underline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageButton
+            android:id="@+id/homebtn"
+            android:layout_width="36dp"
+            android:layout_height="31dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/home_icon_white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/playlistbtn"
+            android:layout_width="54dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="83dp"
+            android:layout_marginLeft="83dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="59dp"
+            android:layout_marginRight="59dp"
+            android:background="@drawable/library_icon_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/searchbtn"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/searchbtn"
+            android:layout_width="38dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/search_icon_white"
+            app:layout_constraintStart_toEndOf="@+id/homebtn"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="95dp"
+            android:layout_marginLeft="95dp"
+            android:text="Search"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="55dp"
+            android:layout_marginLeft="55dp"
+            android:text="Home"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="95dp"
+            android:layout_marginLeft="95dp"
+            android:rotationX="13"
+            android:text="Playlist"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

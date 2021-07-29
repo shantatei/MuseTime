@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,15 +13,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class SongAdapter extends RecyclerView.Adapter<MyView> {
-
+public class SongAdapter extends RecyclerView.Adapter<MyView> implements Filterable {
+    List<Song>songs;
+    List<Song>songsFiltered;
+    Context context;
     public SongAdapter(List<Song> songs) {
         this.songs = songs;
+        this.songsFiltered = songs;
     }
-    List<Song>songs;
-    Context context;
+
     @NonNull
     @NotNull
     @Override
@@ -33,7 +38,7 @@ public class SongAdapter extends RecyclerView.Adapter<MyView> {
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull MyView holder, int position) {
-        Song song = songs.get(position);
+        Song song = songsFiltered.get(position);
         TextView artist = holder.ArtistTxt;
         artist.setText(song.getArtiste());
         TextView title = holder.titleTxt;
@@ -52,6 +57,39 @@ public class SongAdapter extends RecyclerView.Adapter<MyView> {
 
     @Override
     public int getItemCount() {
-        return songs.size();
+        return songsFiltered.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+
+                String charString = constraint.toString();
+                if (charString.isEmpty()){
+                    songsFiltered = songs;
+                }else {
+                    List<Song> filteredList = new ArrayList<Song>();
+                    for (int i = 0; i < songs.size(); i++) {
+                        if (songs.get(i).getTitle().toLowerCase().contains(charString.toLowerCase())){
+                            filteredList.add(songs.get(i));
+                        }
+                    }
+                    songsFiltered = filteredList;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = songsFiltered;
+                return null;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+
+            songsFiltered = (List<Song>) results.values;
+            notifyDataSetChanged();
+            }
+        };
     }
 }

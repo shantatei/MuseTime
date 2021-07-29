@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.P03Music1">
-        <activity android:name=".PlaylistActivity"></activity>
+        <activity android:name=".HomeScreen"></activity>
+        <activity android:name=".PlaylistActivity" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".PlaySongActivity" />
         <activity android:name=".MainActivity">
