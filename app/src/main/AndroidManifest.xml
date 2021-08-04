@@ -11,11 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.P03Music1">
-        <activity android:name=".HomeScreen"></activity>
+        <activity android:name=".keshiplaylist"></activity>
+        <activity android:name=".EdSheeranPlaylist" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".MusicLibrary" />
         <activity android:name=".PlaylistActivity" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".PlaySongActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".HomeScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

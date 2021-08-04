@@ -7,7 +7,7 @@
     tools:context=".MainActivity"
     tools:visibility="visible">
 
-    <ImageButton
+    <ImageView
         android:id="@+id/S1001"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -17,8 +17,7 @@
         android:onClick="handleSelection"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/michael_buble_collection" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtTitle1"
@@ -49,8 +48,7 @@
         android:onClick="handleSelection"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="@+id/S1001"
-        app:layout_constraintTop_toBottomOf="@+id/S1001"
-        app:srcCompat="@drawable/billie_jean" />
+        app:layout_constraintTop_toBottomOf="@+id/S1001" />
 
     <TextView
         android:id="@+id/txtTitle2"
@@ -81,8 +79,7 @@
         android:onClick="handleSelection"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="@+id/S1002"
-        app:layout_constraintTop_toBottomOf="@+id/S1002"
-        app:srcCompat="@drawable/photograph" />
+        app:layout_constraintTop_toBottomOf="@+id/S1002" />
 
     <TextView
         android:id="@+id/txtTitle3"
@@ -129,7 +126,7 @@
         app:layout_constraintVertical_bias="0.896" />
 
     <ImageButton
-        android:id="@+id/playlistbtn"
+        android:id="@+id/playlstbtn"
         android:layout_width="54dp"
         android:layout_height="37dp"
         android:layout_marginEnd="48dp"

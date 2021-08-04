@@ -1,6 +1,7 @@
 package com.example.p03music1;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,13 +19,13 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SongAdapter extends RecyclerView.Adapter<MyView> implements Filterable {
-    List<Song>songs;
+public class EdSheeranAdapter extends RecyclerView.Adapter<MyView>{ //implements Filterable {
+    List<Song> songs;
     List<Song>songsFiltered;
     Context context;
-    public SongAdapter(List<Song> songs) {
+    SongCollection songCollection = new SongCollection();
+    public EdSheeranAdapter(List<Song> songs) {
         this.songs = songs;
-        this.songsFiltered = songs;
     }
 
     @NonNull
@@ -33,39 +34,44 @@ public class SongAdapter extends RecyclerView.Adapter<MyView> implements Filtera
     public MyView onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-        View songView = inflater.inflate(R.layout.item_song,parent,false);
+        View songView = inflater.inflate(R.layout.item_song_main,parent,false);
         MyView viewHolder = new MyView(songView);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull MyView holder, int position) {
+    public void onBindViewHolder(@NonNull @NotNull MyView holder,  int position) {
 
 
-        Song song = songsFiltered.get(position);
+        Song song = songs.get(position);
         TextView artist = holder.ArtistTxt;
         artist.setText(song.getArtiste());
         TextView title = holder.titleTxt;
         title.setText(song.getTitle());
-    //    Integer imageId = Song.getImageIdFromDrawable(context, song.getDrawable()); old codes
-   //     holder.image.setImageResource(imageId);
+        //    Integer imageId = Song.getImageIdFromDrawable(context, song.getDrawable()); old codes
+        //     holder.image.setImageResource(imageId);
         Picasso.with(context).load(song.getDrawable()).into(holder.image); //picasso external library
-        holder.removeBtn.setOnClickListener(new View.OnClickListener() {
+        holder.image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity.favList.remove(position);
-                notifyDataSetChanged();
-
+                int pos = songCollection.searchSongById(song.getId()); //creating a variable called pos as 'position' will give the arraylist index
+                Intent intent = new Intent(context,PlaySongActivity.class);
+                intent.putExtra("index",pos);
+           /*     intent.putExtra("id",song.getId());
+                intent.putExtra("title",song.getTitle());
+                intent.putExtra("artiste",song.getArtiste());
+                intent.putExtra("filelink",song.getFileLink());
+                intent.putExtra("drawable",song.getDrawable());*/
+                context.startActivity(intent);
             }
         });
     }
-
     @Override
     public int getItemCount() {
-        return songsFiltered.size();
+        return songs.size();
     }
 
-    @Override
+   /* @Override
     public Filter getFilter() {
         return new Filter() {
             @Override
@@ -92,9 +98,10 @@ public class SongAdapter extends RecyclerView.Adapter<MyView> implements Filtera
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
 
-            songsFiltered = (List<Song>) results.values;
-            notifyDataSetChanged();
+                songsFiltered = (List<Song>) results.values;
+                notifyDataSetChanged();
             }
         };
-    }
+    }*/
 }
+

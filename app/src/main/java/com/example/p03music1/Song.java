@@ -7,15 +7,15 @@ public class Song {
     private String id;
     private String title;
     private String artiste;
-    private String fileLink;
+    private String filelink;
     private double songlength;
-    private int drawable;
+    private String drawable;
 
-    public Song(String id, String title, String artiste, String fileLink, double songlength, int drawable) {
+    public Song(String id, String title, String artiste, String fileLink, double songlength, String drawable) {
         this.id = id;
         this.title = title;
         this.artiste = artiste;
-        this.fileLink = fileLink;
+        this.filelink = fileLink;
         this.songlength = songlength;
         this.drawable = drawable;
     }
@@ -32,21 +32,28 @@ public class Song {
     }
 
     public String getFileLink() {
-        return fileLink;
+        return filelink;
     }
 
     public double getSonglength() {
         return songlength;
     }
 
-    public int getDrawable() {
+    public String getDrawable() {
         return drawable;
     }
 
-    public static int getImageIdFromDrawable(Context context, int imageName)
+    public static int getImageIdFromDrawable(Context context, String imageName)
+    {
+        int imageID = context.getResources().getIdentifier(imageName,"drawable", context.getPackageName());
+
+        return imageID;
+    }
+
+    /*public static int getImageIdFromDrawable(Context context, int imageName)
     {
         int imageID = context.getResources().getIdentifier(String.valueOf(imageName),"drawable", context.getPackageName());
 
         return imageID;
-    }
+    }*/
 }

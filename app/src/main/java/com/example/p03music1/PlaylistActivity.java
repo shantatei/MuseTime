@@ -4,10 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.SearchView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class PlaylistActivity extends AppCompatActivity {
 RecyclerView favList;
@@ -18,12 +23,12 @@ SongAdapter songAdapter;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playlist);
         favList = findViewById(R.id.recycleView);
-
         songAdapter = new SongAdapter(MainActivity.favList);
         favList.setAdapter(songAdapter);
         favList.setLayoutManager(new LinearLayoutManager(this
         ));
         SearchView searchView =findViewById(R.id.searchView);
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

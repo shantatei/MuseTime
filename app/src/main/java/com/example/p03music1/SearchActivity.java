@@ -30,7 +30,10 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
         songs.add(songCollection.songs[0].getTitle());
         songs.add(songCollection.songs[1].getTitle());
         songs.add(songCollection.songs[2].getTitle());
-
+        songs.add(songCollection.songs[3].getTitle());
+        songs.add(songCollection.songs[4].getTitle());
+        songs.add(songCollection.songs[5].getTitle());
+        songs.add(songCollection.songs[6].getTitle());
         search = findViewById(R.id.search);
         search.setOnQueryTextListener(this);
         musiclist =findViewById(R.id.musiclist);
