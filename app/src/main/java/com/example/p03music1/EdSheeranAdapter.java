@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
@@ -19,9 +20,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EdSheeranAdapter extends RecyclerView.Adapter<MyView>{ //implements Filterable {
+public class EdSheeranAdapter extends RecyclerView.Adapter<MyView>{
     List<Song> songs;
-    List<Song>songsFiltered;
     Context context;
     SongCollection songCollection = new SongCollection();
     public EdSheeranAdapter(List<Song> songs) {
@@ -48,20 +48,19 @@ public class EdSheeranAdapter extends RecyclerView.Adapter<MyView>{ //implements
         artist.setText(song.getArtiste());
         TextView title = holder.titleTxt;
         title.setText(song.getTitle());
-        //    Integer imageId = Song.getImageIdFromDrawable(context, song.getDrawable()); old codes
-        //     holder.image.setImageResource(imageId);
-        Picasso.with(context).load(song.getDrawable()).into(holder.image); //picasso external library
+        //picasso external library
+        Picasso.with(context).load(song.getDrawable()).into(holder.image);
         holder.image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int pos = songCollection.searchSongById(song.getId()); //creating a variable called pos as 'position' will give the arraylist index
+                // creating Gson object
+                Gson gson = new Gson();
+                // converting song array list in song collection to string
+                String sendingsonglist = gson.toJson(songs);
                 Intent intent = new Intent(context,PlaySongActivity.class);
-                intent.putExtra("index",pos);
-           /*     intent.putExtra("id",song.getId());
-                intent.putExtra("title",song.getTitle());
-                intent.putExtra("artiste",song.getArtiste());
-                intent.putExtra("filelink",song.getFileLink());
-                intent.putExtra("drawable",song.getDrawable());*/
+                intent.putExtra("index",position);
+                intent.putExtra("songs",sendingsonglist);
                 context.startActivity(intent);
             }
         });
@@ -71,37 +70,5 @@ public class EdSheeranAdapter extends RecyclerView.Adapter<MyView>{ //implements
         return songs.size();
     }
 
-   /* @Override
-    public Filter getFilter() {
-        return new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence constraint) {
-
-                String charString = constraint.toString();
-                if (charString.isEmpty()){
-                    songsFiltered = songs;
-                }else {
-                    List<Song> filteredList = new ArrayList<Song>();
-                    for (int i = 0; i < songs.size(); i++) {
-                        if (songs.get(i).getTitle().toLowerCase().contains(charString.toLowerCase())){
-                            filteredList.add(songs.get(i));
-                        }
-                    }
-                    songsFiltered = filteredList;
-                }
-
-                FilterResults filterResults = new FilterResults();
-                filterResults.values = songsFiltered;
-                return filterResults;
-            }
-
-            @Override
-            protected void publishResults(CharSequence constraint, FilterResults results) {
-
-                songsFiltered = (List<Song>) results.values;
-                notifyDataSetChanged();
-            }
-        };
-    }*/
 }
 

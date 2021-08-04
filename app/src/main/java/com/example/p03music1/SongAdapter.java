@@ -53,7 +53,7 @@ public class SongAdapter extends RecyclerView.Adapter<MyView> implements Filtera
         holder.removeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity.favList.remove(position);
+                PlaySongActivity.favList.remove(position);
                 notifyDataSetChanged();
 
             }

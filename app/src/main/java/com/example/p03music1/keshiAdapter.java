@@ -62,13 +62,14 @@ public class keshiAdapter extends RecyclerView.Adapter<MyView>{
             @Override
             public void onClick(View v) {
                 int pos = songCollection.searchSongById(song.getId()); //creating a variable called pos as 'position' will give the arraylist index
+                // creating Gson object
+                Gson gson = new Gson();
+                // converting song array list in song collection to string
+                String sendingsonglist = gson.toJson(songs);
                 Intent intent = new Intent(context,PlaySongActivity.class);
-                intent.putExtra("index",pos);
-           /*     intent.putExtra("id",song.getId());
-                intent.putExtra("title",song.getTitle());
-                intent.putExtra("artiste",song.getArtiste());
-                intent.putExtra("filelink",song.getFileLink());
-                intent.putExtra("drawable",song.getDrawable());*/
+                intent.putExtra("index",position);
+                intent.putExtra("songs",sendingsonglist);
+
                 context.startActivity(intent);
             }
         });

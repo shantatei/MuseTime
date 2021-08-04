@@ -84,6 +84,8 @@ public class SongCollection {
         }
         return -1;
     }
+
+
     public int searchSongByTitle(String title){
         for (int i = 0; i <songs.length; i++) {
 

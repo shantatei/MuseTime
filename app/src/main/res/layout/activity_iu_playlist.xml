@@ -5,10 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".keshiplaylist">
-
+    tools:context=".iuPlaylist">
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/keshiview"
+        android:id="@+id/IUview"
         android:layout_width="409dp"
         android:layout_height="462dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,7 +19,7 @@
         android:id="@+id/constraintLayout"
         android:layout_width="412dp"
         android:layout_height="271dp"
-        android:background="@drawable/keshi_artist"
+        android:background="@drawable/iu_artist"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -32,12 +31,12 @@
             android:layout_marginStart="4dp"
             android:layout_marginLeft="4dp"
             android:layout_marginTop="172dp"
-            android:text="keshi"
+            android:text="IU"
             android:textColor="@color/white"
             android:textSize="60sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
 
+</androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

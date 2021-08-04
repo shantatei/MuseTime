@@ -13,6 +13,7 @@ import android.widget.SearchView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.concurrent.BlockingDeque;
 
 public class PlaylistActivity extends AppCompatActivity {
 RecyclerView favList;
@@ -22,8 +23,11 @@ SongAdapter songAdapter;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playlist);
+        for (int i = 0; i < PlaySongActivity.favList.size(); i++) {
+            Log.d("temasek",PlaySongActivity.favList.get(i).getTitle());
+        }
         favList = findViewById(R.id.recycleView);
-        songAdapter = new SongAdapter(MainActivity.favList);
+        songAdapter = new SongAdapter(PlaySongActivity.favList);
         favList.setAdapter(songAdapter);
         favList.setLayoutManager(new LinearLayoutManager(this
         ));
@@ -44,7 +48,7 @@ SongAdapter songAdapter;
     }
 
     public void removeAll(View view) {
-        MainActivity.favList.clear();
+        PlaySongActivity.favList.clear();
         songAdapter.notifyDataSetChanged();
 
     }

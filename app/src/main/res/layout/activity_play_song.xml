@@ -110,4 +110,17 @@
         app:layout_constraintTop_toTopOf="@+id/txtPrevious"
         app:srcCompat="@drawable/repeat_button_off" />
 
+    <ImageButton
+        android:id="@+id/likedBtn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="252dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:background="@drawable/liked_icon_off"
+        android:onClick="addtoLiked"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txtSongTitle" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

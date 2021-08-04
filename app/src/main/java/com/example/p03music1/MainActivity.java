@@ -24,20 +24,13 @@ public class MainActivity extends AppCompatActivity {
 
     SongCollection songCollection = new SongCollection();
     static ArrayList<Song> favList = new ArrayList<Song>();
-    SharedPreferences sharedPreferences;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        sharedPreferences =getSharedPreferences("playList", MODE_PRIVATE);
-        String albums = sharedPreferences.getString("list", "");
-        if (!albums.equals(""))
-        {
-            TypeToken<ArrayList<Song>> token = new TypeToken<ArrayList<Song>>(){};
-            Gson gson = new Gson();
-            favList = gson.fromJson(albums,token.getType());
 
-        }
         // Picasso External Library
         ImageView s1001 = findViewById(R.id.S1001);
         Picasso.with(this).load(songCollection.songs[0].getDrawable()).into(s1001);
@@ -55,32 +48,36 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-        public void openSearchActivity(){
-        Intent intent = new Intent(this,SearchActivity.class);
-       startActivity(intent);
-        }
-        public void openPlaylistActivity(){
-        Intent intent = new Intent(this,PlaylistActivity.class);
+
+    public void openSearchActivity() {
+        Intent intent = new Intent(this, SearchActivity.class);
         startActivity(intent);
     }
 
-    public void sendDataToActivity(int index){
-        Intent intent = new Intent(this,PlaySongActivity.class);
-        intent.putExtra("index",index);
+    public void openPlaylistActivity() {
+        Intent intent = new Intent(this, PlaylistActivity.class);
+        startActivity(intent);
+    }
+
+    public void sendDataToActivity(int index) {
+        Intent intent = new Intent(this, PlaySongActivity.class);
+        intent.putExtra("index", index);
         startActivity(intent);
     }
 
     public void handleSelection(View view) {
 
-        int buttonId=view.getId();
+        int buttonId = view.getId();
         String resourceID = getResources().getResourceEntryName(buttonId);
-        Log.d("poly", "The id of the imagebutton is " +resourceID);
+        Log.d("poly", "The id of the imagebutton is " + resourceID);
         int currentArrayIndex = songCollection.searchSongById(resourceID);
-        Log.d("poly","The array index is " + currentArrayIndex);
+        Log.d("poly", "The array index is " + currentArrayIndex);
         sendDataToActivity(currentArrayIndex);
 
     }
+}
 
+/*
     public void addToFavourite(View view) {
         String resourceID = getResources().getResourceEntryName(view.getId());
         //String songID = view.getContentDescription().toString();
@@ -102,4 +99,4 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,PlaylistActivity.class);
         startActivity(intent);
     }
-}
+}*/

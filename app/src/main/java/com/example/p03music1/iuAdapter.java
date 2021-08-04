@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,18 +15,14 @@ import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.net.BindException;
-import java.util.ArrayList;
 import java.util.List;
 
-public class SongMainAdapter extends RecyclerView.Adapter<MyView> implements Filterable {
-    List<Song>songs;
-    List<Song>songsFiltered;
+public class iuAdapter extends RecyclerView.Adapter<MyView>{
+    List<Song> songs;
     Context context;
     SongCollection songCollection = new SongCollection();
-    public SongMainAdapter(List<Song> songs) {
+    public iuAdapter(List<Song> songs) {
         this.songs = songs;
-        this.songsFiltered = songs;
     }
 
     @NonNull
@@ -46,21 +40,20 @@ public class SongMainAdapter extends RecyclerView.Adapter<MyView> implements Fil
     public void onBindViewHolder(@NonNull @NotNull MyView holder,  int position) {
 
 
-        Song song = songsFiltered.get(position);
+        Song song = songs.get(position);
         TextView artist = holder.ArtistTxt;
         artist.setText(song.getArtiste());
         TextView title = holder.titleTxt;
         title.setText(song.getTitle());
-    //    Integer imageId = Song.getImageIdFromDrawable(context, song.getDrawable()); old codes
-   //     holder.image.setImageResource(imageId);
         Picasso.with(context).load(song.getDrawable()).into(holder.image); //picasso external library
         holder.image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int pos = songCollection.searchSongById(song.getId()); //creating a variable called pos as 'position' will give the arraylist index
                 // creating Gson object
                 Gson gson = new Gson();
                 // converting song array list in song collection to string
-                String sendingsonglist = gson.toJson(songsFiltered);
+                String sendingsonglist = gson.toJson(songs);
                 Intent intent = new Intent(context,PlaySongActivity.class);
                 intent.putExtra("index",position);
                 intent.putExtra("songs",sendingsonglist);
@@ -69,42 +62,9 @@ public class SongMainAdapter extends RecyclerView.Adapter<MyView> implements Fil
             }
         });
     }
-
     @Override
     public int getItemCount() {
-        return songsFiltered.size();
+        return songs.size();
     }
 
-    @Override
-    public Filter getFilter() {
-        return new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence constraint) {
-
-                String charString = constraint.toString();
-                if (charString.isEmpty()){
-                    songsFiltered = songs;
-                }else {
-                    List<Song> filteredList = new ArrayList<Song>();
-                    for (int i = 0; i < songs.size(); i++) {
-                        if (songs.get(i).getTitle().toLowerCase().contains(charString.toLowerCase())){
-                            filteredList.add(songs.get(i));
-                        }
-                    }
-                    songsFiltered = filteredList;
-                }
-
-                FilterResults filterResults = new FilterResults();
-                filterResults.values = songsFiltered;
-                return filterResults;
-            }
-
-            @Override
-            protected void publishResults(CharSequence constraint, FilterResults results) {
-
-            songsFiltered = (List<Song>) results.values;
-            notifyDataSetChanged();
-            }
-        };
-    }
 }

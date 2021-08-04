@@ -35,14 +35,19 @@ public class MusicLibrary extends AppCompatActivity {
 
 
         String url = "https://musiclibrary-3ed8.restdb.io/rest/song?apikey=bdade1537241c45949573e53666a11b6bcf91";
+        //Request.Method.GET means getting data from the web basically
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
                 Gson gson = new Gson();
+                // the code below basically converts the string to the various instances in the array
                 TypeToken<ArrayList<Song>>token = new TypeToken<ArrayList<Song>>(){};
+                //response is 'String' , token.getType converts it to proper song instances
                 mainlist = gson.fromJson(response,token.getType());
+                //mainlist is powering the adapter
                 SongMainAdapter adapter = new SongMainAdapter(mainlist);
+                //mainsongview (recycler view) is using the adapter and the adapter is powered by the mainlist
                 mainSongView.setAdapter(adapter);
                 mainSongView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                 SearchView searchView = findViewById(R.id.mainSearchView);
