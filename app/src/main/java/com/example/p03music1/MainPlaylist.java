@@ -14,6 +14,7 @@ public class MainPlaylist extends AppCompatActivity {
     private ImageButton homebutton;
     private ImageView artist1;
     private ImageView artist2;
+    private ImageView artist3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +23,7 @@ public class MainPlaylist extends AppCompatActivity {
         homebutton = findViewById(R.id.homebtn);
         artist1 = findViewById(R.id.artist1);
         artist2 = findViewById(R.id.artist2);
+        artist3 = findViewById(R.id.artist3);
 
         searchbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +53,12 @@ public class MainPlaylist extends AppCompatActivity {
             }
         });
 
+        artist3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openIUPlaylist();
+            }
+        });
 
     }
 
@@ -81,6 +89,10 @@ public class MainPlaylist extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openIUPlaylist() {
+        Intent intent = new Intent(this, iuPlaylist.class);
+        startActivity(intent);
+    }
 
     }
 

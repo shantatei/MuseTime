@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.AudioManager;
 import android.media.MediaParser;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -75,6 +76,10 @@ public class PlaySongActivity extends AppCompatActivity {
     ImageButton shuffleBtn;
     ImageButton likedBtn;
 
+    //seekbar Volume Control
+    SeekBar seekBarVolume;
+    AudioManager audioManager;
+
 
     Boolean repeatFlag = false;
     Boolean shuffleFlag = false;
@@ -97,7 +102,44 @@ public class PlaySongActivity extends AppCompatActivity {
         playerPosition=findViewById(R.id.player_position);
         playerDuration=findViewById(R.id.player_duration);
         seekbar = findViewById(R.id.seekBar);
+        seekBarVolume =findViewById(R.id.seekBarVolume);
+
+        audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+
+        //get Max Volume
+        int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+
+        //get Current Volume
+        int currentVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+
+        seekBarVolume.setMax(maxVolume);
+
+        seekBarVolume.setProgress(currentVolume);
+
+        //seekbar to control vol
+        seekBarVolume.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+                audioManager.setStreamVolume(AudioManager.STREAM_MUSIC,progress,0);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+
+        //seekbar to control song
         seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                //Check condition
@@ -127,6 +169,8 @@ public class PlaySongActivity extends AppCompatActivity {
         repeatBtn = findViewById(R.id.repeatBtn);
         shuffleBtn = findViewById(R.id.shuffleBtn);
         likedBtn = findViewById(R.id.likedBtn);
+
+        //getting data from other activities
         Bundle songData = this.getIntent().getExtras();
         currentIndex = songData.getInt("index");
         //Creating GSON Object

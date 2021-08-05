@@ -205,4 +205,36 @@
         app:layout_constraintStart_toStartOf="@+id/textView18"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/artist3"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/iu_artist"
+        android:hapticFeedbackEnabled="false"
+        app:layout_constraintStart_toStartOf="@+id/artist2"
+        app:layout_constraintTop_toBottomOf="@+id/artist2"
+        app:shapeAppearanceOverlay="@style/Circular" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="IU"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/artist3"
+        app:layout_constraintTop_toTopOf="@+id/artist3" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Artist"
+        android:textColor="@color/underline"
+        app:layout_constraintStart_toStartOf="@+id/textView20"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
