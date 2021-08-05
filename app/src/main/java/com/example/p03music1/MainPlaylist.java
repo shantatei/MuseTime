@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-import java.util.ArrayList;
-
 public class MainPlaylist extends AppCompatActivity {
     private ImageButton likedbutton;
     private ImageButton searchbutton;
@@ -57,7 +55,7 @@ public class MainPlaylist extends AppCompatActivity {
     }
 
     public void gotoFavouriteActivity(View view) {
-        Intent intent = new Intent(this,PlaylistActivity.class);
+        Intent intent = new Intent(this, FavouritePlaylist.class);
         startActivity(intent);
     }
 

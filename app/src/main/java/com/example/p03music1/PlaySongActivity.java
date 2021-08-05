@@ -2,6 +2,8 @@ package com.example.p03music1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.MediaParser;
 import android.media.MediaPlayer;
@@ -27,8 +29,11 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class PlaySongActivity extends AppCompatActivity {
+    //Initialize variables here:
+
     private String title = "";
     private String artiste = "";
     private String filelink = "";
@@ -54,15 +59,23 @@ public class PlaySongActivity extends AppCompatActivity {
 
     private MediaPlayer player = new MediaPlayer();
     private ImageButton btnPlayPause = null;
+
     SharedPreferences sharedPreferences;
 
  //  static List<Song> shuffleList = new ArrayList<>(songlist);
 
+
+    //seekbar variables
+    TextView playerPosition,playerDuration;
     SeekBar seekbar;
     Handler handler = new Handler();
+
+    //btn variables
     ImageButton repeatBtn;
     ImageButton shuffleBtn;
     ImageButton likedBtn;
+
+
     Boolean repeatFlag = false;
     Boolean shuffleFlag = false;
     Boolean likedFlag = false;
@@ -81,10 +94,20 @@ public class PlaySongActivity extends AppCompatActivity {
         }
 
         btnPlayPause = findViewById(R.id.btnPlayPause);
+        playerPosition=findViewById(R.id.player_position);
+        playerDuration=findViewById(R.id.player_duration);
         seekbar = findViewById(R.id.seekBar);
         seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+               //Check condition
+                if(fromUser){
+                    //When drag the seekbar
+                    //Set progress on seekbar
+                    player.seekTo(progress);
+                }
+                //Set current position on text view
+                playerPosition.setText(convertFormat(player.getCurrentPosition()));
 
             }
 
@@ -115,6 +138,22 @@ public class PlaySongActivity extends AppCompatActivity {
         Log.d("poly", "The index of the array is " + currentIndex);
         displaySongBasedOnIndex(currentIndex);
         playSong(filelink);
+        //Get Duration of mediaplayer
+        int duration = player.getDuration();
+        // Using method to Convert millisecond to minute and second
+        String sDuration = convertFormat(duration);
+        //Set duration on text view
+        playerDuration.setText(sDuration);
+    }
+
+
+    //Converting millisecond to minute and second method
+    //returning string of 'Time'
+    @SuppressLint("DefaultLocale")
+    private String convertFormat(int duration){
+        return String.format("%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(duration),
+                TimeUnit.MILLISECONDS.toSeconds(duration)-TimeUnit.MINUTES.toSeconds(
+                        TimeUnit.MILLISECONDS.toMinutes(duration)));
     }
 
     Runnable p_bar = new Runnable() {
@@ -125,7 +164,11 @@ public class PlaySongActivity extends AppCompatActivity {
             }
             handler.postDelayed(this, 1000);
         }
+
+
     };
+
+
 
     //playSong Method
 
@@ -360,6 +403,34 @@ public class PlaySongActivity extends AppCompatActivity {
             editor.apply();
         }
         likedFlag = !likedFlag;
+    }
+
+    public void saveToSharedPreferences(int toBeSaved, String key){
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(key,toBeSaved);
+        editor.apply();
+
+    }
+
+    public void saveToSharedPreferences(String toBeSaved, String key){
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(key,toBeSaved);
+        editor.apply();
+    }
+
+
+    public void removeDataFromPref(Context context){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove("put key in here ");
+        editor.apply();
+    }
+
+    public void removeAllDataFromPref(Context context){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
     }
 }
 

@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +16,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.concurrent.BlockingDeque;
 
-public class PlaylistActivity extends AppCompatActivity {
+public class FavouritePlaylist extends AppCompatActivity {
 RecyclerView favList;
 SongAdapter songAdapter;
 
@@ -49,6 +50,10 @@ SongAdapter songAdapter;
 
     public void removeAll(View view) {
         PlaySongActivity.favList.clear();
+        SharedPreferences sharedPreferences = getSharedPreferences("playList", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
         songAdapter.notifyDataSetChanged();
 
     }

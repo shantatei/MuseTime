@@ -144,9 +144,9 @@ public class HomeScreen extends AppCompatActivity {
                 TypeToken<ArrayList<Song>> token = new TypeToken<ArrayList<Song>>() {};
                 mainlist = gson.fromJson(response, token.getType());
                 //check if data can be obtained
-                for (int i = 0; i < mainlist.size(); i++) {
+               /* for (int i = 0; i < mainlist.size(); i++) {
                     Log.d("poly", mainlist.get(i).getTitle());
-                }
+                }*/
             }
         }, new Response.ErrorListener() {
             @Override

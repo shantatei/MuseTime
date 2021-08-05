@@ -1,6 +1,7 @@
 package com.example.p03music1;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SongAdapter extends RecyclerView.Adapter<MyView> implements Filterable {
+
+    //array list will go into the list 'songs'
     List<Song>songs;
     List<Song>songsFiltered;
     Context context;
@@ -47,13 +50,15 @@ public class SongAdapter extends RecyclerView.Adapter<MyView> implements Filtera
         artist.setText(song.getArtiste());
         TextView title = holder.titleTxt;
         title.setText(song.getTitle());
-    //    Integer imageId = Song.getImageIdFromDrawable(context, song.getDrawable()); old codes
-   //     holder.image.setImageResource(imageId);
-        Picasso.with(context).load(song.getDrawable()).into(holder.image); //picasso external library
+        Picasso.with(context).load(song.getDrawable()).into(holder.image);
         holder.removeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 PlaySongActivity.favList.remove(position);
+                SharedPreferences sharedPreferences = context.getSharedPreferences("playList",Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.remove("list");
+                editor.apply();
                 notifyDataSetChanged();
 
             }
