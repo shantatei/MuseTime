@@ -28,6 +28,7 @@ public class HomeScreen extends AppCompatActivity {
     private ImageView artist1;
     private ImageView artist2;
     private ImageView artist3;
+    private ImageView artist4;
     SongCollection songCollection = new SongCollection();
     ArrayList<Song> mainlist;
     @Override
@@ -40,6 +41,7 @@ public class HomeScreen extends AppCompatActivity {
         artist1 = findViewById(R.id.artist1);
         artist2 = findViewById(R.id.artist2);
         artist3 = findViewById(R.id.artist3);
+        artist4 = findViewById(R.id.artist4);
 
         //picasso external library
         ImageView s1004 = findViewById(R.id.S1004);
@@ -88,6 +90,13 @@ public class HomeScreen extends AppCompatActivity {
                 openIUPlaylist();
             }
         });
+
+        artist4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openChunghaPlaylist();
+            }
+        });
     }
 
     public void openSearchActivity() {
@@ -112,6 +121,11 @@ public class HomeScreen extends AppCompatActivity {
 
     public void openIUPlaylist() {
         Intent intent = new Intent(this, iuPlaylist.class);
+        startActivity(intent);
+    }
+
+    public void openChunghaPlaylist() {
+        Intent intent = new Intent(this, chunghaPlaylist.class);
         startActivity(intent);
     }
 

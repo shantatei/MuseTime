@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.P03Music1">
-        <activity android:name=".MainPlaylist"></activity>
+        <activity android:name=".chunghaPlaylist"></activity>
+        <activity android:name=".MainPlaylist" />
         <activity android:name=".iuPlaylist" />
         <activity android:name=".keshiplaylist" />
         <activity android:name=".EdSheeranPlaylist" />
