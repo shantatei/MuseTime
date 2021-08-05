@@ -44,16 +44,16 @@ public class HomeScreen extends AppCompatActivity {
         //picasso external library
         ImageView s1004 = findViewById(R.id.S1004);
         Picasso.with(this).load(songCollection.songs[3].getDrawable()).into(s1004);
-        //Picasso.with(this).load(fkinghell.get(3).getDrawable()).into(s1004);
+        //Picasso.with(this).load(mainlist.get(3).getDrawable()).into(s1004);
         ImageView s1005 = findViewById(R.id.S1005);
         Picasso.with(this).load(songCollection.songs[4].getDrawable()).into(s1005);
-        //Picasso.with(this).load(fkinghell.get(4).getDrawable()).into(s1004);
+        //Picasso.with(this).load(mainlist.get(4).getDrawable()).into(s1004);
         ImageView s1006 = findViewById(R.id.S1006);
         Picasso.with(this).load(songCollection.songs[5].getDrawable()).into(s1006);
-        //Picasso.with(this).load(fkinghell.get(5).getDrawable()).into(s1004);
+        //Picasso.with(this).load(mainlist.get(5).getDrawable()).into(s1004);
         ImageView s1007 = findViewById(R.id.S1007);
         Picasso.with(this).load(songCollection.songs[6].getDrawable()).into(s1007);
-        //Picasso.with(this).load(fkinghell.get(6).getDrawable()).into(s1004);
+        //Picasso.with(this).load(mainlist.get(6).getDrawable()).into(s1004);
 
 
         searchbutton.setOnClickListener(new View.OnClickListener() {
@@ -143,6 +143,7 @@ public class HomeScreen extends AppCompatActivity {
                 Gson gson = new Gson();
                 TypeToken<ArrayList<Song>> token = new TypeToken<ArrayList<Song>>() {};
                 mainlist = gson.fromJson(response, token.getType());
+                //check if data can be obtained
                 for (int i = 0; i < mainlist.size(); i++) {
                     Log.d("poly", mainlist.get(i).getTitle());
                 }

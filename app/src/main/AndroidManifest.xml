@@ -15,10 +15,8 @@
         <activity android:name=".iuPlaylist" />
         <activity android:name=".keshiplaylist" />
         <activity android:name=".EdSheeranPlaylist" />
-        <activity android:name=".MainActivity" />
         <activity android:name=".MusicLibrary" />
         <activity android:name=".PlaylistActivity" />
-        <activity android:name=".SearchActivity" />
         <activity android:name=".PlaySongActivity" />
         <activity android:name=".HomeScreen">
             <intent-filter>

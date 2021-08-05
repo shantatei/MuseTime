@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.SearchView;
 
 import com.android.volley.Request;
@@ -24,6 +27,8 @@ public class MusicLibrary extends AppCompatActivity {
 
     public static ArrayList<Song> mainlist = new ArrayList<Song>();
     RecyclerView mainSongView;
+    private ImageButton playlistbutton;
+    private ImageButton homebutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,8 @@ public class MusicLibrary extends AppCompatActivity {
         setContentView(R.layout.activity_music_library);
 
         mainSongView = findViewById(R.id.mainSongView);
+        playlistbutton = findViewById(R.id.playlistbtn);
+        homebutton = findViewById(R.id.homebtn);
 
 
 
@@ -76,5 +83,34 @@ public class MusicLibrary extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(stringRequest);
 
+
+        playlistbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPlaylistActivity();
+            }
+        });
+
+        homebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openHomeActivity();
+            }
+        });
+
+
+
+    }
+
+
+    public void openPlaylistActivity() {
+        Intent intent = new Intent(this, MainPlaylist.class);
+        startActivity(intent);
+    }
+
+
+    public void openHomeActivity() {
+        Intent intent = new Intent(this, HomeScreen.class);
+        startActivity(intent);
     }
 }

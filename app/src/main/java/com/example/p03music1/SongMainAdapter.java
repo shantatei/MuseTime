@@ -2,6 +2,7 @@ package com.example.p03music1;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,6 +62,7 @@ public class SongMainAdapter extends RecyclerView.Adapter<MyView> implements Fil
                 Gson gson = new Gson();
                 // converting song array list in song collection to string
                 String sendingsonglist = gson.toJson(songsFiltered);
+
                 Intent intent = new Intent(context,PlaySongActivity.class);
                 intent.putExtra("index",position);
                 intent.putExtra("songs",sendingsonglist);
