@@ -6,7 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.SearchView;
+import android.view.View;
+import android.widget.ImageButton;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -23,12 +24,14 @@ public class EdSheeranPlaylist extends AppCompatActivity {
 
    public static ArrayList<Song> edsheeranlist = new ArrayList<Song>();
     RecyclerView edsheeranview;
+    ImageButton backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ed_sheeran_playlist);
         edsheeranview = findViewById(R.id.edsheeranview);
+        backBtn = findViewById(R.id.backBtn);
         String url = "https://musiclibrary-3ed8.restdb.io/rest/Ed-Sheeran-Playlist?apikey=bdade1537241c45949573e53666a11b6bcf91";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
@@ -38,23 +41,9 @@ public class EdSheeranPlaylist extends AppCompatActivity {
                 Gson gson = new Gson();
                 TypeToken<ArrayList<Song>> token = new TypeToken<ArrayList<Song>>(){};
                 edsheeranlist=gson.fromJson(response,token.getType());
-                EdSheeranAdapter adapter = new EdSheeranAdapter(edsheeranlist);
+                ArtistAdapter adapter = new ArtistAdapter(edsheeranlist);
                 edsheeranview.setAdapter(adapter);
                 edsheeranview.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                /*SearchView searchView = findViewById(R.id.edsheeranview);
-                searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                    @Override
-                    public boolean onQueryTextSubmit(String query) {
-                        return false;
-                    }
-
-                    @Override
-                    public boolean onQueryTextChange(String newText) {
-                        adapter.getFilter().filter(newText);
-                        return false;
-                    }
-                });*/
-
 
             }
         }, new Response.ErrorListener() {
@@ -67,6 +56,17 @@ public class EdSheeranPlaylist extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(stringRequest);
 
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }
 

@@ -75,6 +75,7 @@ public class PlaySongActivity extends AppCompatActivity {
     ImageButton repeatBtn;
     ImageButton shuffleBtn;
     ImageButton likedBtn;
+    ImageButton backBtn;
 
     //seekbar Volume Control
     SeekBar seekBarVolume;
@@ -169,6 +170,15 @@ public class PlaySongActivity extends AppCompatActivity {
         repeatBtn = findViewById(R.id.repeatBtn);
         shuffleBtn = findViewById(R.id.shuffleBtn);
         likedBtn = findViewById(R.id.likedBtn);
+        backBtn = findViewById(R.id.songBackBtn);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
 
         //getting data from other activities
         Bundle songData = this.getIntent().getExtras();
@@ -449,33 +459,6 @@ public class PlaySongActivity extends AppCompatActivity {
         likedFlag = !likedFlag;
     }
 
-    public void saveToSharedPreferences(int toBeSaved, String key){
-
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(key,toBeSaved);
-        editor.apply();
-
-    }
-
-    public void saveToSharedPreferences(String toBeSaved, String key){
-
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(key,toBeSaved);
-        editor.apply();
-    }
-
-
-    public void removeDataFromPref(Context context){
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.remove("put key in here ");
-        editor.apply();
-    }
-
-    public void removeAllDataFromPref(Context context){
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.clear();
-        editor.apply();
-    }
 }
 
 

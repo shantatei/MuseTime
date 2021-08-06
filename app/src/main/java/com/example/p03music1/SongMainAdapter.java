@@ -26,7 +26,6 @@ public class SongMainAdapter extends RecyclerView.Adapter<MyView> implements Fil
     List<Song>songs;
     List<Song>songsFiltered;
     Context context;
-    SongCollection songCollection = new SongCollection();
     public SongMainAdapter(List<Song> songs) {
         this.songs = songs;
         this.songsFiltered = songs;

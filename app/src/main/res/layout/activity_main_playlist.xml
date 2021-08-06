@@ -237,4 +237,36 @@
         app:layout_constraintStart_toStartOf="@+id/textView20"
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/artist4"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/chungha_artist"
+        android:hapticFeedbackEnabled="false"
+        app:layout_constraintStart_toStartOf="@+id/artist3"
+        app:layout_constraintTop_toBottomOf="@+id/artist3"
+        app:shapeAppearanceOverlay="@style/Circular" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="CHUNG HA"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/artist4"
+        app:layout_constraintTop_toTopOf="@+id/artist4" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Artist"
+        android:textColor="@color/underline"
+        app:layout_constraintStart_toStartOf="@+id/textView22"
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

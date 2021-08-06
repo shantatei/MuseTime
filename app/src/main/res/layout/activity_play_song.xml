@@ -11,9 +11,10 @@
         android:id="@+id/imgCoverArt"
         android:layout_width="350dp"
         android:layout_height="350dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="48dp"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/home" />
@@ -114,13 +115,13 @@
         android:id="@+id/likedBtn"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="108dp"
-        android:layout_marginRight="108dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/liked_icon_off"
         android:onClick="addtoLiked"
         android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/txtSongTitle" />
 
     <TextView
@@ -178,5 +179,17 @@
         android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/seekBarVolume" />
+
+    <ImageButton
+        android:id="@+id/songBackBtn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/back_icon_v2"
+        android:text="Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

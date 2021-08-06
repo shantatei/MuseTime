@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,13 +17,14 @@ import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class iuAdapter extends RecyclerView.Adapter<MyView>{
+public class ArtistAdapter extends RecyclerView.Adapter<MyView>{
     List<Song> songs;
     Context context;
     SongCollection songCollection = new SongCollection();
-    public iuAdapter(List<Song> songs) {
+    public ArtistAdapter(List<Song> songs) {
         this.songs = songs;
     }
 
@@ -45,7 +48,8 @@ public class iuAdapter extends RecyclerView.Adapter<MyView>{
         artist.setText(song.getArtiste());
         TextView title = holder.titleTxt;
         title.setText(song.getTitle());
-        Picasso.with(context).load(song.getDrawable()).into(holder.image); //picasso external library
+        //picasso external library
+        Picasso.with(context).load(song.getDrawable()).into(holder.image);
         holder.image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +61,6 @@ public class iuAdapter extends RecyclerView.Adapter<MyView>{
                 Intent intent = new Intent(context,PlaySongActivity.class);
                 intent.putExtra("index",position);
                 intent.putExtra("songs",sendingsonglist);
-
                 context.startActivity(intent);
             }
         });
@@ -68,3 +71,4 @@ public class iuAdapter extends RecyclerView.Adapter<MyView>{
     }
 
 }
+

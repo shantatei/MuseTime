@@ -15,6 +15,8 @@ public class MainPlaylist extends AppCompatActivity {
     private ImageView artist1;
     private ImageView artist2;
     private ImageView artist3;
+    private ImageView artist4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,7 @@ public class MainPlaylist extends AppCompatActivity {
         artist1 = findViewById(R.id.artist1);
         artist2 = findViewById(R.id.artist2);
         artist3 = findViewById(R.id.artist3);
+        artist4 = findViewById(R.id.artist4);
 
         searchbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +60,13 @@ public class MainPlaylist extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openIUPlaylist();
+            }
+        });
+
+        artist4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openChunghaPlaylist();
             }
         });
 
@@ -94,7 +104,12 @@ public class MainPlaylist extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openChunghaPlaylist() {
+        Intent intent = new Intent(this, chunghaPlaylist.class);
+        startActivity(intent);
     }
+
+}
 
 
 
