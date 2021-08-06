@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.P03Music1">
-        <activity android:name=".chunghaPlaylist"></activity>
+        <activity android:name=".HomeScreen"></activity>
+        <activity android:name=".chunghaPlaylist" />
         <activity android:name=".MainPlaylist" />
         <activity android:name=".iuPlaylist" />
         <activity android:name=".keshiplaylist" />
@@ -19,7 +20,7 @@
         <activity android:name=".MusicLibrary" />
         <activity android:name=".FavouritePlaylist" />
         <activity android:name=".PlaySongActivity" />
-        <activity android:name=".HomeScreen">
+        <activity android:name=".LoginScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
