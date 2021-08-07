@@ -50,10 +50,4 @@ public class Song {
         return imageID;
     }
 
-    /*public static int getImageIdFromDrawable(Context context, int imageName)
-    {
-        int imageID = context.getResources().getIdentifier(String.valueOf(imageName),"drawable", context.getPackageName());
-
-        return imageID;
-    }*/
 }

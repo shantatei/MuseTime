@@ -7,245 +7,373 @@
     android:background="@color/black"
     tools:context=".HomeScreen">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="28dp"
-        android:text="Welcome Back, User "
-        android:textColor="@color/white"
-        android:textSize="34sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/categoryTxt1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="Made for you"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-
-    <HorizontalScrollView
-        android:id="@+id/horizontal1"
-        android:layout_width="450dp"
-        android:layout_height="206dp"
-        android:layout_marginTop="5dp"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="730dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categoryTxt1">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="730dp">
 
-            <ImageView
-                android:id="@+id/S1004"
-                android:layout_width="180dp"
-                android:layout_height="180dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="2dp"
-                android:onClick="handleSelection"
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="28dp"
+                android:text="Welcome Back, User "
+                android:textColor="@color/white"
+                android:textSize="34sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/S1005"
-                android:layout_width="180dp"
-                android:layout_height="180dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="5dp"
-                android:onClick="handleSelection"
-                android:text="Button"
-                app:layout_constraintStart_toEndOf="@id/S1004"
-                app:layout_constraintTop_toTopOf="@id/S1004" />
-
-            <ImageView
-                android:id="@+id/S1006"
-                android:layout_width="180dp"
-                android:layout_height="180dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="5dp"
-                android:onClick="handleSelection"
-                android:text="Button"
-                app:layout_constraintStart_toEndOf="@id/S1005"
-                app:layout_constraintTop_toTopOf="@id/S1005" />
-
-            <ImageView
-                android:id="@+id/S1007"
-                android:layout_width="180dp"
-                android:layout_height="180dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="5dp"
-                android:onClick="handleSelection"
-                android:text="Button"
-                app:layout_constraintStart_toEndOf="@id/S1006"
-                app:layout_constraintTop_toTopOf="@id/S1006" />
-
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/categoryTxt1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="27dp"
-                android:layout_marginLeft="27dp"
-                android:text="Blueming"
+                android:layout_marginTop="15dp"
+                android:text="Made for you"
                 android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <HorizontalScrollView
+                android:id="@+id/horizontal1"
+                android:layout_width="450dp"
+                android:layout_height="206dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/S1004" />
+                app:layout_constraintTop_toBottomOf="@+id/categoryTxt1">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/S1004"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="2dp"
+                        android:onClick="handleSelection"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/S1005"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginLeft="5dp"
+                        android:onClick="handleSelection"
+                        android:text="Button"
+                        app:layout_constraintStart_toEndOf="@id/S1004"
+                        app:layout_constraintTop_toTopOf="@id/S1004" />
+
+                    <ImageView
+                        android:id="@+id/S1006"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginLeft="5dp"
+                        android:onClick="handleSelection"
+                        android:text="Button"
+                        app:layout_constraintStart_toEndOf="@id/S1005"
+                        app:layout_constraintTop_toTopOf="@id/S1005" />
+
+                    <ImageView
+                        android:id="@+id/S1007"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginLeft="5dp"
+                        android:onClick="handleSelection"
+                        android:text="Button"
+                        app:layout_constraintStart_toEndOf="@id/S1006"
+                        app:layout_constraintTop_toTopOf="@id/S1006" />
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="27dp"
+                        android:layout_marginLeft="27dp"
+                        android:text="Blueming"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/S1004" />
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Shape of You"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="@+id/S1005"
+                        app:layout_constraintTop_toBottomOf="@+id/S1005" />
+
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Psycho"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="@+id/S1006"
+                        app:layout_constraintTop_toBottomOf="@+id/S1006" />
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Butter"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="@+id/S1007"
+                        app:layout_constraintTop_toBottomOf="@+id/S1007" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </HorizontalScrollView>
 
             <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Shape of You"
+                android:id="@+id/categoryTxt2"
+                android:layout_width="49dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="16dp"
+                android:text="Artist"
                 android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="@+id/S1005"
-                app:layout_constraintTop_toBottomOf="@+id/S1005" />
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Psycho"
-                android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="@+id/S1006"
-                app:layout_constraintTop_toBottomOf="@+id/S1006" />
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Butter"
-                android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="@+id/S1007"
-                app:layout_constraintTop_toBottomOf="@+id/S1007" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </HorizontalScrollView>
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/categoryTxt1"
+                app:layout_constraintTop_toBottomOf="@id/horizontal1" />
 
-    <TextView
-        android:id="@+id/categoryTxt2"
-        android:layout_width="49dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="16dp"
-        android:text="Artist"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/categoryTxt1"
-        app:layout_constraintTop_toBottomOf="@id/horizontal1" />
-
-    <HorizontalScrollView
-        android:id="@+id/horizontal2"
-        android:layout_width="450dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categoryTxt2">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/artist1"
-                android:layout_width="123dp"
-                android:layout_height="123dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="2dp"
-                android:background="@drawable/ed_sheeran_artist"
-                android:hapticFeedbackEnabled="false"
-                android:onClick="handleSelection"
+            <HorizontalScrollView
+                android:id="@+id/horizontal2"
+                android:layout_width="450dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:shapeAppearanceOverlay="@style/Circular" />
+                app:layout_constraintTop_toBottomOf="@+id/categoryTxt2">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/artist1"
+                        android:layout_width="123dp"
+                        android:layout_height="123dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/ed_sheeran_artist"
+                        android:hapticFeedbackEnabled="false"
+                        android:onClick="handleSelection"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearanceOverlay="@style/Circular" />
 
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/artist2"
-                android:layout_width="123dp"
-                android:layout_height="123dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="5dp"
-                android:background="@drawable/keshi_artist"
-                android:onClick="handleSelection"
-                android:text="Button"
-                app:layout_constraintStart_toEndOf="@id/artist1"
-                app:layout_constraintTop_toTopOf="@id/artist1"
-                app:shapeAppearanceOverlay="@style/Circular" />
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/artist2"
+                        android:layout_width="123dp"
+                        android:layout_height="123dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@drawable/keshi_artist"
+                        android:onClick="handleSelection"
+                        android:text="Button"
+                        app:layout_constraintStart_toEndOf="@id/artist1"
+                        app:layout_constraintTop_toTopOf="@id/artist1"
+                        app:shapeAppearanceOverlay="@style/Circular" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/artist3"
-                android:layout_width="123dp"
-                android:layout_height="123dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="5dp"
-                android:background="@drawable/iu_artist"
-                android:onClick="handleSelection"
-                android:text="Button"
-                app:layout_constraintStart_toEndOf="@id/artist2"
-                app:layout_constraintTop_toTopOf="@id/artist2"
-                app:shapeAppearanceOverlay="@style/Circular" />
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/artist3"
+                        android:layout_width="123dp"
+                        android:layout_height="123dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@drawable/iu_artist"
+                        android:onClick="handleSelection"
+                        android:text="Button"
+                        app:layout_constraintStart_toEndOf="@id/artist2"
+                        app:layout_constraintTop_toTopOf="@id/artist2"
+                        app:shapeAppearanceOverlay="@style/Circular" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/artist4"
-                android:layout_width="123dp"
-                android:layout_height="123dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="5dp"
-                android:background="@drawable/chungha_artist"
-                android:onClick="handleSelection"
-                android:text="Button"
-                app:layout_constraintStart_toEndOf="@id/artist3"
-                app:layout_constraintTop_toTopOf="@id/artist3"
-                app:shapeAppearanceOverlay="@style/Circular" />
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/artist4"
+                        android:layout_width="123dp"
+                        android:layout_height="123dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@drawable/chungha_artist"
+                        android:onClick="handleSelection"
+                        android:text="Button"
+                        app:layout_constraintStart_toEndOf="@id/artist3"
+                        app:layout_constraintTop_toTopOf="@id/artist3"
+                        app:shapeAppearanceOverlay="@style/Circular" />
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="27dp"
+                        android:layout_marginLeft="27dp"
+                        android:text="Ed Sheeran"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="@id/artist1"
+                        app:layout_constraintTop_toBottomOf="@id/artist1" />
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="keshi"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="@+id/artist2"
+                        app:layout_constraintTop_toBottomOf="@+id/artist2" />
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="IU"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="@+id/artist3"
+                        app:layout_constraintTop_toBottomOf="@+id/artist3" />
+
+                    <TextView
+                        android:id="@+id/textView14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Chungha"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="@+id/artist4"
+                        app:layout_constraintTop_toBottomOf="@+id/artist4" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </HorizontalScrollView>
 
             <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="27dp"
-                android:layout_marginLeft="27dp"
-                android:text="Ed Sheeran"
+                android:id="@+id/categoryTxt3"
+                android:layout_width="70dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="16dp"
+                android:text="Genre"
                 android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="@id/artist1"
-                app:layout_constraintTop_toBottomOf="@id/artist1" />
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/categoryTxt2"
+                app:layout_constraintTop_toBottomOf="@id/horizontal2" />
 
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="keshi"
-                android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="@+id/artist2"
-                app:layout_constraintTop_toBottomOf="@+id/artist2" />
+            <HorizontalScrollView
+                android:id="@+id/horizontal3"
+                android:layout_width="450dp"
+                android:layout_height="206dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/categoryTxt3">
 
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="IU"
-                android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="@+id/artist3"
-                app:layout_constraintTop_toBottomOf="@+id/artist3" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Chungha"
-                android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="@+id/artist4"
-                app:layout_constraintTop_toBottomOf="@+id/artist4" />
+                    <ImageView
+                        android:id="@+id/genre1"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/anime_genre"
+                        android:hapticFeedbackEnabled="false"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <ImageView
+                        android:id="@+id/genre2"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@drawable/kpop_music"
+                        android:text="Button"
+                        app:layout_constraintStart_toEndOf="@id/genre1"
+                        app:layout_constraintTop_toTopOf="@id/genre1" />
+
+                    <ImageView
+                        android:id="@+id/genre3"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@drawable/pop_genre"
+                        android:text="Button"
+                        app:layout_constraintStart_toEndOf="@id/genre2"
+                        app:layout_constraintTop_toTopOf="@id/genre2" />
+
+                    <ImageView
+                        android:id="@+id/genre4"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@drawable/sleep_genre"
+                        android:text="Button"
+                        app:layout_constraintStart_toEndOf="@id/genre3"
+                        app:layout_constraintTop_toTopOf="@id/genre3" />
+
+                    <TextView
+                        android:id="@+id/genretxt1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="27dp"
+                        android:layout_marginLeft="27dp"
+                        android:text="Anime"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="@id/genre1"
+                        app:layout_constraintTop_toBottomOf="@id/genre1" />
+
+                    <TextView
+                        android:id="@+id/genretxt2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kpop"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="@+id/genre2"
+                        app:layout_constraintTop_toBottomOf="@+id/genre2" />
+
+                    <TextView
+                        android:id="@+id/genretxt3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pop"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="@+id/genre3"
+                        app:layout_constraintTop_toBottomOf="@+id/genre3" />
+
+                    <TextView
+                        android:id="@+id/genretxt4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sleep"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="@+id/genre4"
+                        app:layout_constraintTop_toBottomOf="@+id/genre4" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </HorizontalScrollView>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </HorizontalScrollView>
+    </ScrollView>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout5"
         android:layout_width="450dp"
         android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="parent"

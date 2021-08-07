@@ -46,7 +46,8 @@ public class PlaySongActivity extends AppCompatActivity {
     ArrayList<Song> songlist = new ArrayList<Song>();
     //static means another class can simply access the variable through the class
     // thus no need to create an instant
-    //creating a an arraylist called favlist to add songs into this array list
+
+    //creating an arraylist called favlist to add songs into this array list
     static ArrayList<Song> favList = new ArrayList<Song>();
 
     //creating historylist
@@ -62,8 +63,6 @@ public class PlaySongActivity extends AppCompatActivity {
     private ImageButton btnPlayPause = null;
 
     SharedPreferences sharedPreferences;
-
- //  static List<Song> shuffleList = new ArrayList<>(songlist);
 
 
     //seekbar variables

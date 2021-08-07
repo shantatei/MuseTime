@@ -77,8 +77,5 @@ public class LoginScreen extends AppCompatActivity {
 
     }
 
-    public void openHomeScreenActivity() {
-        Intent intent = new Intent(this, HomeScreen.class);
-        startActivity(intent);
-    }
+
 }

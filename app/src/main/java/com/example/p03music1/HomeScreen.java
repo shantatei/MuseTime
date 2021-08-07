@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -29,6 +30,7 @@ public class HomeScreen extends AppCompatActivity {
     private ImageView artist2;
     private ImageView artist3;
     private ImageView artist4;
+
     SongCollection songCollection = new SongCollection();
     ArrayList<Song> mainlist;
     @Override
@@ -97,6 +99,7 @@ public class HomeScreen extends AppCompatActivity {
                 openChunghaPlaylist();
             }
         });
+
     }
 
     public void openSearchActivity() {
@@ -173,6 +176,7 @@ public class HomeScreen extends AppCompatActivity {
         queue.add(stringRequest);
 
     }
+
 }
 
 
