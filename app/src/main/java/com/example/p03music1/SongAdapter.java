@@ -1,6 +1,7 @@
 package com.example.p03music1;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
@@ -25,6 +27,8 @@ public class SongAdapter extends RecyclerView.Adapter<MyView> implements Filtera
     List<Song>songs;
     List<Song>songsFiltered;
     Context context;
+
+    PlaySongActivity playSongActivity = new PlaySongActivity();
     public SongAdapter(List<Song> songs) {
         this.songs = songs;
         this.songsFiltered = songs;
@@ -61,6 +65,21 @@ public class SongAdapter extends RecyclerView.Adapter<MyView> implements Filtera
                 editor.apply();
                 notifyDataSetChanged();
 
+            }
+        });
+
+        holder.image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // creating Gson object
+                Gson gson = new Gson();
+                // converting song array list in song collection to string
+                String sendingsonglist = gson.toJson(songs);
+                Intent intent = new Intent(context,PlaySongActivity.class);
+                intent.putExtra("index",position);
+                intent.putExtra("songs",sendingsonglist);
+                context.startActivity(intent);
             }
         });
     }

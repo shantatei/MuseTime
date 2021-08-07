@@ -23,7 +23,7 @@ import java.util.List;
 public class ArtistAdapter extends RecyclerView.Adapter<MyView>{
     List<Song> songs;
     Context context;
-    SongCollection songCollection = new SongCollection();
+
     public ArtistAdapter(List<Song> songs) {
         this.songs = songs;
     }
@@ -53,7 +53,7 @@ public class ArtistAdapter extends RecyclerView.Adapter<MyView>{
         holder.image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int pos = songCollection.searchSongById(song.getId()); //creating a variable called pos as 'position' will give the arraylist index
+
                 // creating Gson object
                 Gson gson = new Gson();
                 // converting song array list in song collection to string

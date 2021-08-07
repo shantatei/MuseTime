@@ -51,9 +51,9 @@ public class SongMainAdapter extends RecyclerView.Adapter<MyView> implements Fil
         artist.setText(song.getArtiste());
         TextView title = holder.titleTxt;
         title.setText(song.getTitle());
-    //    Integer imageId = Song.getImageIdFromDrawable(context, song.getDrawable()); old codes
-   //     holder.image.setImageResource(imageId);
-        Picasso.with(context).load(song.getDrawable()).into(holder.image); //picasso external library
+
+        //picasso external library
+        Picasso.with(context).load(song.getDrawable()).into(holder.image);
         holder.image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

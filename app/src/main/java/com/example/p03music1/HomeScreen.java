@@ -31,13 +31,11 @@ public class HomeScreen extends AppCompatActivity {
     private ImageView artist3;
     private ImageView artist4;
 
-    SongCollection songCollection = new SongCollection();
-    ArrayList<Song> mainlist;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
-        getapi();
+
         searchbutton = findViewById(R.id.searchbtn);
         playlistbutton = findViewById(R.id.playlistbtn);
         artist1 = findViewById(R.id.artist1);
@@ -47,17 +45,16 @@ public class HomeScreen extends AppCompatActivity {
 
         //picasso external library
         ImageView s1004 = findViewById(R.id.S1004);
-        Picasso.with(this).load(songCollection.songs[3].getDrawable()).into(s1004);
-        //Picasso.with(this).load(mainlist.get(3).getDrawable()).into(s1004);
+        Picasso.with(this).load(LoginScreen.mainlist.get(3).getDrawable()).into(s1004);
+
         ImageView s1005 = findViewById(R.id.S1005);
-        Picasso.with(this).load(songCollection.songs[4].getDrawable()).into(s1005);
-        //Picasso.with(this).load(mainlist.get(4).getDrawable()).into(s1004);
+        Picasso.with(this).load(LoginScreen.mainlist.get(4).getDrawable()).into(s1005);
+
         ImageView s1006 = findViewById(R.id.S1006);
-        Picasso.with(this).load(songCollection.songs[5].getDrawable()).into(s1006);
-        //Picasso.with(this).load(mainlist.get(5).getDrawable()).into(s1004);
+        Picasso.with(this).load(LoginScreen.mainlist.get(5).getDrawable()).into(s1006);
+
         ImageView s1007 = findViewById(R.id.S1007);
-        Picasso.with(this).load(songCollection.songs[6].getDrawable()).into(s1007);
-        //Picasso.with(this).load(mainlist.get(6).getDrawable()).into(s1004);
+        Picasso.with(this).load(LoginScreen.mainlist.get(6).getDrawable()).into(s1007);
 
 
         searchbutton.setOnClickListener(new View.OnClickListener() {
@@ -136,7 +133,7 @@ public class HomeScreen extends AppCompatActivity {
         Intent intent = new Intent(this, PlaySongActivity.class);
         intent.putExtra("index", index);
         Gson gson = new Gson();
-        String dataToBeSent = gson.toJson(mainlist);
+        String dataToBeSent = gson.toJson(LoginScreen.mainlist);
         intent.putExtra("songs",dataToBeSent);
         startActivity(intent);
     }
@@ -146,37 +143,22 @@ public class HomeScreen extends AppCompatActivity {
         int buttonId = view.getId();
         String resourceID = getResources().getResourceEntryName(buttonId);
         Log.d("poly", "The id of the imagebutton is " + resourceID);
-        int currentArrayIndex =songCollection.searchSongById(resourceID);
+        int currentArrayIndex =searchSongById(resourceID);
         Log.d("poly", "The array index is " + currentArrayIndex);
         sendDataToActivity(currentArrayIndex);
     }
 
-    public void getapi(){
+    public  int searchSongById(String id){
+        for (int i = 0; i <LoginScreen.mainlist.size(); i++) {
 
-        String url = "https://musiclibrary-3ed8.restdb.io/rest/song?apikey=bdade1537241c45949573e53666a11b6bcf91";
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Gson gson = new Gson();
-                TypeToken<ArrayList<Song>> token = new TypeToken<ArrayList<Song>>() {};
-                mainlist = gson.fromJson(response, token.getType());
-                //check if data can be obtained
-               /* for (int i = 0; i < mainlist.size(); i++) {
-                    Log.d("poly", mainlist.get(i).getTitle());
-                }*/
+            Song tempSong = LoginScreen.mainlist.get(i);
+            if(tempSong.getId().equals(id)){
+                return i;
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-        });
 
-        RequestQueue queue = Volley.newRequestQueue(this);
-        queue.add(stringRequest);
-
+        }
+        return -1;
     }
-
 }
 
 

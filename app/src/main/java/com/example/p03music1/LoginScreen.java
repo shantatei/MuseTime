@@ -9,8 +9,18 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.util.ArrayList;
 
 public class LoginScreen extends AppCompatActivity {
 
@@ -19,6 +29,9 @@ public class LoginScreen extends AppCompatActivity {
     FloatingActionButton fb,google,twitter;
     float v=0;
 
+    //Making a static Arraylist such that
+    //Home Screen can use
+    public static ArrayList<Song> mainlist;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,8 +87,32 @@ public class LoginScreen extends AppCompatActivity {
         tabLayout.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(100).start();
 
 
-
+        getapi();
     }
 
+    public void getapi(){
 
+        String url = "https://musiclibrary-3ed8.restdb.io/rest/song?apikey=bdade1537241c45949573e53666a11b6bcf91";
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Gson gson = new Gson();
+                TypeToken<ArrayList<Song>> token = new TypeToken<ArrayList<Song>>() {};
+                mainlist = gson.fromJson(response, token.getType());
+                //check if data can be obtained
+                for (int i = 0; i < mainlist.size(); i++) {
+                    Log.d("poly", mainlist.get(i).getTitle());
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(stringRequest);
+
+    }
 }

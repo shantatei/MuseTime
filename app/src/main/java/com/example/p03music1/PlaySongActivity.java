@@ -331,15 +331,21 @@ public class PlaySongActivity extends AppCompatActivity {
 
         afterCurrent.add(song);
         //adding the last song of beforeCurrent to displaySong
-        displaySongBasedOnIndex(songlist.indexOf(beforeCurrent.remove(beforeCurrent.size()-1)));
 
-        playSong(filelink);
+        if (beforeCurrent.size() == 0) {
+            player.stop();
+            seekbar.setProgress(seekbar.getMax());
+            btnPlayPause.setBackgroundResource(R.drawable.play_icon_white);
+        } else {
+            displaySongBasedOnIndex(songlist.indexOf(beforeCurrent.remove(beforeCurrent.size() - 1)));
+
+            playSong(filelink);
 //        currentIndex = getPrevSong(currentIndex);
 //        Log.d("poly", "After playPrevious, the index is now :" + currentIndex);
 //        displaySongBasedOnIndex(currentIndex);
 //        playSong(filelink);
+        }
     }
-
     //playNextSong Method
 
     public void playNext(View view) {
@@ -350,16 +356,21 @@ public class PlaySongActivity extends AppCompatActivity {
         beforeCurrent.add(song);
 
 
-        //afterCurrent.remove(0) returns the first song in the index
-        //to songlist
-        displaySongBasedOnIndex(songlist.indexOf(afterCurrent.remove(0)));
-
-
-        playSong(filelink);
+        if (afterCurrent.size() == 0) {
+            player.stop();
+            seekbar.setProgress(seekbar.getMax());
+            btnPlayPause.setBackgroundResource(R.drawable.play_icon_white);
+            onBackPressed();
+        } else {
+            //afterCurrent.remove(0) returns the first song in the index
+            //to songlist
+            displaySongBasedOnIndex(songlist.indexOf(afterCurrent.remove(0)));
+            playSong(filelink);
         /*currentIndex = getNextSong(currentIndex);
         Log.d("poly", "After playNext, the index is now :" + currentIndex);
         displaySongBasedOnIndex(currentIndex);
         playSong(filelink);*/
+        }
     }
 
     //Repeat Button Method
@@ -436,6 +447,12 @@ public class PlaySongActivity extends AppCompatActivity {
         } else {
             return currentSongIndex + 1;
         }
+    }
+
+    //getCurrentSong Method
+    public Song getCurrentSong(int currentSongId){
+
+        return songlist.get(currentSongId);
     }
 
     //addtoLikedPlaylist Method
