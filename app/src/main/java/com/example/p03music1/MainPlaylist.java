@@ -9,7 +9,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 public class MainPlaylist extends AppCompatActivity {
-    private ImageButton likedbutton;
+
     private ImageButton searchbutton;
     private ImageButton homebutton;
     private ImageView artist1;

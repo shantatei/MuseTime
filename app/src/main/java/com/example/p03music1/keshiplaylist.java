@@ -39,9 +39,13 @@ public class keshiplaylist extends AppCompatActivity {
 
 
                 Gson gson = new Gson();
+                //creating a token for an ArrayList
                 TypeToken<ArrayList<Song>> token = new TypeToken<ArrayList<Song>>(){};
+                //Converting the String (response) to an Arraylist
                 keshilist=gson.fromJson(response,token.getType());
+                //keshilist is powering the adapter
                 ArtistAdapter adapter = new ArtistAdapter(keshilist);
+                //keshiview(recycler view) is using the adapter
                 keshiview.setAdapter(adapter);
                 keshiview.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 

@@ -333,6 +333,7 @@ public class PlaySongActivity extends AppCompatActivity {
             playSong(filelink);
         }
     }
+
     //playNextSong Method
 
     public void playNext(View view) {
@@ -414,32 +415,6 @@ public class PlaySongActivity extends AppCompatActivity {
         shuffleFlag = !shuffleFlag;
     }
 
-    //getPrevSong Method
-
-    public int getPrevSong(int currentSongIndex) {
-        if (currentSongIndex <= 0) {
-            return currentSongIndex;
-        } else {
-            return currentSongIndex - 1;
-        }
-    }
-
-    //getNextSong Method
-
-    public int getNextSong(int currentSongIndex) {
-        if (currentSongIndex >=songlist.size() - 1) {
-            return currentSongIndex;
-        } else {
-            return currentSongIndex + 1;
-        }
-    }
-
-    //getCurrentSong Method
-    public Song getCurrentSong(int currentSongId){
-
-        return songlist.get(currentSongId);
-    }
-
     //addtoLikedPlaylist Method
 
     public void addtoLiked(View view) {
@@ -447,7 +422,6 @@ public class PlaySongActivity extends AppCompatActivity {
             likedBtn.setBackgroundResource(R.drawable.liked_icon_off);
         }else {
             likedBtn.setBackgroundResource(R.drawable.liked_icon_on);
-            Song song = songlist.get(currentIndex);
             favList.add(song);
             Gson gson = new Gson();
             //converting favlist to string

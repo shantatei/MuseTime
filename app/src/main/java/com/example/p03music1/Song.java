@@ -43,11 +43,5 @@ public class Song {
         return drawable;
     }
 
-    public static int getImageIdFromDrawable(Context context, String imageName)
-    {
-        int imageID = context.getResources().getIdentifier(imageName,"drawable", context.getPackageName());
-
-        return imageID;
-    }
 
 }
