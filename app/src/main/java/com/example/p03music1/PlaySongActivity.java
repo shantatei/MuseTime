@@ -326,14 +326,11 @@ public class PlaySongActivity extends AppCompatActivity {
             player.stop();
             seekbar.setProgress(seekbar.getMax());
             btnPlayPause.setBackgroundResource(R.drawable.play_icon_white);
+            onBackPressed();
         } else {
             displaySongBasedOnIndex(songlist.indexOf(beforeCurrent.remove(beforeCurrent.size() - 1)));
 
             playSong(filelink);
-//        currentIndex = getPrevSong(currentIndex);
-//        Log.d("poly", "After playPrevious, the index is now :" + currentIndex);
-//        displaySongBasedOnIndex(currentIndex);
-//        playSong(filelink);
         }
     }
     //playNextSong Method
@@ -352,14 +349,12 @@ public class PlaySongActivity extends AppCompatActivity {
             btnPlayPause.setBackgroundResource(R.drawable.play_icon_white);
             onBackPressed();
         } else {
+
             //afterCurrent.remove(0) returns the first song in the index
             //to songlist
             displaySongBasedOnIndex(songlist.indexOf(afterCurrent.remove(0)));
             playSong(filelink);
-        /*currentIndex = getNextSong(currentIndex);
-        Log.d("poly", "After playNext, the index is now :" + currentIndex);
-        displaySongBasedOnIndex(currentIndex);
-        playSong(filelink);*/
+
         }
     }
 
