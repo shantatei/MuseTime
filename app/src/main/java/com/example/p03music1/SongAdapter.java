@@ -28,7 +28,6 @@ public class SongAdapter extends RecyclerView.Adapter<MyView> implements Filtera
     List<Song>songsFiltered;
     Context context;
 
-    PlaySongActivity playSongActivity = new PlaySongActivity();
     public SongAdapter(List<Song> songs) {
         this.songs = songs;
         this.songsFiltered = songs;
@@ -38,7 +37,10 @@ public class SongAdapter extends RecyclerView.Adapter<MyView> implements Filtera
     @NotNull
     @Override
     public MyView onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
+        //handle for item_song
         context = parent.getContext();
+
+        //codes to render item_song
         LayoutInflater inflater = LayoutInflater.from(context);
         View songView = inflater.inflate(R.layout.item_song,parent,false);
         MyView viewHolder = new MyView(songView);
@@ -74,7 +76,7 @@ public class SongAdapter extends RecyclerView.Adapter<MyView> implements Filtera
 
                 // creating Gson object
                 Gson gson = new Gson();
-                // converting song array list in song collection to string
+                // converting song array list to string
                 String sendingsonglist = gson.toJson(songs);
                 Intent intent = new Intent(context,PlaySongActivity.class);
                 intent.putExtra("index",position);

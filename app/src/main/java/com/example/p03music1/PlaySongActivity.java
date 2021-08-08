@@ -40,12 +40,12 @@ public class PlaySongActivity extends AppCompatActivity {
     private String filelink = "";
     private String drawable;
     private int currentIndex = -1;
+
+
     // making a new variable called songlist
     //songlist will be the arraylist that
     //is powering the 'display song based on index'
     ArrayList<Song> songlist = new ArrayList<Song>();
-    //static means another class can simply access the variable through the class
-    // thus no need to create an instant
 
     //creating an arraylist called favlist to add songs into this array list
     static ArrayList<Song> favList = new ArrayList<Song>();
@@ -61,8 +61,6 @@ public class PlaySongActivity extends AppCompatActivity {
 
     private MediaPlayer player = new MediaPlayer();
     private ImageButton btnPlayPause = null;
-
-    SharedPreferences sharedPreferences;
 
 
     //seekbar variables
@@ -89,14 +87,6 @@ public class PlaySongActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_song);
-        sharedPreferences = getSharedPreferences("playList",MODE_PRIVATE);
-        String albums = sharedPreferences.getString("list","");
-        if (!albums.equals(""))
-        {
-            TypeToken<ArrayList<Song>> token = new TypeToken<ArrayList<Song>>(){};
-            Gson gson = new Gson();
-            favList = gson.fromJson(albums,token.getType());
-        }
 
         btnPlayPause = findViewById(R.id.btnPlayPause);
         playerPosition=findViewById(R.id.player_position);
@@ -184,7 +174,7 @@ public class PlaySongActivity extends AppCompatActivity {
         currentIndex = songData.getInt("index");
         //Creating GSON Object
         Gson gson = new Gson();
-        //Converting String Data into instances of the arraylist
+        //Converting String Data into an arraylist
         TypeToken<ArrayList<Song>> token = new TypeToken<ArrayList<Song>>() {
         };
         songlist = gson.fromJson(songData.getString("songs"), token.getType());
@@ -468,7 +458,8 @@ public class PlaySongActivity extends AppCompatActivity {
             //converting favlist to string
             String json = gson.toJson(favList);
             Log.d("gson", json);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
+            //creating editor instance to write to file
+            SharedPreferences.Editor editor = HomeScreen.sharedPreferences.edit();
             editor.putString("list",json);
             editor.apply();
         }

@@ -48,9 +48,9 @@ public class MusicLibrary extends AppCompatActivity {
             public void onResponse(String response) {
 
                 Gson gson = new Gson();
-                // the code below basically converts the string to the various instances in the array
+                //creating a token for an ArrayList
                 TypeToken<ArrayList<Song>>token = new TypeToken<ArrayList<Song>>(){};
-                //response is 'String' , token.getType converts it to proper song instances
+                //response is 'String' , token.getType converts it to an Arraylist (Song Object in the Arraylist)
                 mainlist = gson.fromJson(response,token.getType());
                 //mainlist is powering the adapter
                 SongMainAdapter adapter = new SongMainAdapter(mainlist);

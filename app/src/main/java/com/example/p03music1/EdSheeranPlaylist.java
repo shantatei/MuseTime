@@ -39,9 +39,13 @@ public class EdSheeranPlaylist extends AppCompatActivity {
 
 
                 Gson gson = new Gson();
+                //creating a token for an ArrayList
                 TypeToken<ArrayList<Song>> token = new TypeToken<ArrayList<Song>>(){};
+                //Converting the String (response) to an Arraylist
                 edsheeranlist=gson.fromJson(response,token.getType());
+                //edsheeranlist is powering the adapter
                 ArtistAdapter adapter = new ArtistAdapter(edsheeranlist);
+                //edsheeranview (recycler view) is using the adapter
                 edsheeranview.setAdapter(adapter);
                 edsheeranview.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 

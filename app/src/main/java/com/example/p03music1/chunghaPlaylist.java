@@ -40,9 +40,13 @@ public class chunghaPlaylist extends AppCompatActivity {
 
 
                 Gson gson = new Gson();
+                //creating a token for an ArrayList
                 TypeToken<ArrayList<Song>> token = new TypeToken<ArrayList<Song>>(){};
+                //Converting the String (response) to an Arraylist
                 Chunghalist=gson.fromJson(response,token.getType());
+                //Chunghalist is powering the adapter
                 ArtistAdapter adapter = new ArtistAdapter(Chunghalist);
+                //Chunghaview (recycler view) is using the adapter
                 Chunghaview.setAdapter(adapter);
                 Chunghaview.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 

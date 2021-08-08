@@ -56,7 +56,7 @@ public class ArtistAdapter extends RecyclerView.Adapter<MyView>{
 
                 // creating Gson object
                 Gson gson = new Gson();
-                // converting song array list in song collection to string
+                // converting song list to string
                 String sendingsonglist = gson.toJson(songs);
                 Intent intent = new Intent(context,PlaySongActivity.class);
                 intent.putExtra("index",position);

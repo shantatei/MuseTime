@@ -37,9 +37,13 @@ public class iuPlaylist extends AppCompatActivity {
 
 
                 Gson gson = new Gson();
+                //creating a token for an ArrayList
                 TypeToken<ArrayList<Song>> token = new TypeToken<ArrayList<Song>>(){};
+                //Converting the String (response) to an Arraylist
                 IUlist=gson.fromJson(response,token.getType());
+                //IUlist is powering the adapter
                 ArtistAdapter adapter = new ArtistAdapter(IUlist);
+                //IUview(recycler view) is using the adapter
                 IUview.setAdapter(adapter);
                 IUview.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 

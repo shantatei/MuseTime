@@ -3,6 +3,7 @@ package com.example.p03music1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -31,6 +32,9 @@ public class HomeScreen extends AppCompatActivity {
     private ImageView artist3;
     private ImageView artist4;
 
+    //making sharedPreferences a static variable
+    public  static SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +46,19 @@ public class HomeScreen extends AppCompatActivity {
         artist2 = findViewById(R.id.artist2);
         artist3 = findViewById(R.id.artist3);
         artist4 = findViewById(R.id.artist4);
+
+        //First argument (Name of File)
+        //Second argument (Setting the Mode)
+        sharedPreferences = getSharedPreferences("playList",MODE_PRIVATE);
+        String albums = sharedPreferences.getString("list","");
+        if (!albums.equals(""))
+        {
+            //creating a token for an ArrayList
+            TypeToken<ArrayList<Song>> token = new TypeToken<ArrayList<Song>>(){};
+            Gson gson = new Gson();
+            //converting String (albums) back to an an Arraylist
+            PlaySongActivity.favList = gson.fromJson(albums,token.getType());
+        }
 
         //picasso external library
         ImageView s1004 = findViewById(R.id.S1004);

@@ -35,7 +35,9 @@ SongAdapter songAdapter;
         searchbutton = findViewById(R.id.searchbtn);
         playlistbutton = findViewById(R.id.playlistbtn);
         homebutton = findViewById(R.id.homebtn);
+        //favList(Arraylist from PlaySongActivity) is powering the adapter
         songAdapter = new SongAdapter(PlaySongActivity.favList);
+        //favList(recycler view) is using the adapter
         favList.setAdapter(songAdapter);
         favList.setLayoutManager(new LinearLayoutManager(this
         ));
